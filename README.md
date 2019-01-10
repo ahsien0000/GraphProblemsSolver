@@ -1,7 +1,3 @@
-# GraphProblemsSolver
-This is a Python version template of graph-based problems solver, for the classic graph problems documented in Python NetworkX library
-
-
 ## Graph data reduction algorithm
 
 This repo provides an algorithm for users to reduce grpah-based data. For a specific algorithm (i.e., shortest path problem), users can obtain shortest path query result after applying shortest path algorithm on the original graph. However, since the original graph might be considered too large, the provided reduction algorithm can reduce the oginal graph by removing some irrelevant nodes/edges, but without harming the query result. In other words, the reduced graph can still answer the user's shortest path probelm query with a 100% accurate result.
