@@ -1,22 +1,33 @@
-## Graph data reduction algorithm
+## Graph-based problems
 
-This repo provides an algorithm for users to reduce grpah-based data. For a specific algorithm (i.e., shortest path problem), users can obtain shortest path query result after applying shortest path algorithm on the original graph. However, since the original graph might be considered too large, the provided reduction algorithm can reduce the oginal graph by removing some irrelevant nodes/edges, but without harming the query result. In other words, the reduced graph can still answer the user's shortest path probelm query with a 100% accurate result.
+In graph theory, there are multiple classic optimization problems, such as shortest path problem, minumum spanning tree problem, flow problem, etc. Here I implemented a python-version problem solver program , for user to import a graph with .csv file, choose corresponding algorithms, and obtain the problem result. 
 
-### GRSP
+### Python NetworkX Library
 
-GRSP: graph reduction-shortest path is the algorithm that reduces irrelevant nodes/edges in the original graph, while preserving 100% accuracy of the shortest path query result.
-Refer to [algorithms](https://github.com/ahsien0000/GraphReduction_ShortestPath/tree/master/src/algorithm).
+NetworkX provides basic functions for generating graphs including nodes and edges, and also provides functions API for developers to call.
+For exampl:
+```
+    import networkx as nx
+    ...
+    G = nx.DiGraph()
+    ...
+    nx.dfs_edges(G, source=0, depth_limit=int(n))
+```
 
-### LGRSP
+### Graph format
 
-LGRSP 1+epsilon: Lossy graph reduction-shortest path. Based on GRSP, LGRSP is the algorithm that reduces more nodes/edges with a tolerable error rate. In addition, the error rate is bounded by epsilon.
-Refer to [algorithms](https://github.com/ahsien0000/GraphReduction_ShortestPath/tree/master/src/algorithm).
+The graph format we use here is comma-separated values file (.csv). In this repo you may find a sample graph.csv file, and you can extend/manupulate the file before you want to import the file into the program. Each row(tuple) in the file represents an edge in the graph. There are three columns, source, target, and weight, such that source and target indicate the direction of each edge, and weight is the cost on the edge.
+For example:
+```
+source,target,weight
+0,      1,      1
+0,      2,      2
+0,      3,      1
+```
 
-### Publications referring these algorithms
+### Reference
 
-1. Wang, S., Zhang, G., Sheu, P., Hayakawa, M., Shigematsu, H., & Kitazawa, A. (2018). A Semantic Approach to Data Reduction for Weighted Graphs and Complex Queries. International Journal of Semantic Computing, 12(02), 287-312. [link](https://www.worldscientific.com/doi/abs/10.1142/S1793351X18500010)
-
-2. Wang, S., Zhang, G., Sheu, P., Hayakawa, M., Shigematsu, H., & Kitazawa, A. (2018). Lossy Graph Data Reduction. International Journal of Semantic Computing, 12(03), 425-456. [link](https://www.worldscientific.com/doi/abs/10.1142/S1793351X18500022)
+1. https://networkx.github.io/documentation/stable/reference/algorithms/index.html
 
 
 ### Support or contacts
